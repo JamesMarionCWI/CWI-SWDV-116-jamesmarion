@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav a {
+    color: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: cadetblue;
+    text-decoration: underline;
+}
+
+main p {
+    font-size: 2rem;
+    font-weight: bold;
+}
