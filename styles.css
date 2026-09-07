@@ -1,17 +1,21 @@
+/* Set the <body> tag font family to "Arial, Helvetica, sans-serif" */
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* For each <a> element in the <nav> element set the color to rgba(0, 0, 0, 0.7) and text decoration to none. */
 nav a {
     color: rgba(0, 0, 0, 0.7);
     text-decoration: none;
 }
 
+/* When the mouse hovers over each <a> element in the <nav> element set the color to cadetblue and text decoration to underline. */
 nav a:hover {
     color: cadetblue;
     text-decoration: underline;
 }
 
+/* For the <p> element in the <main> element, set the font size to 2rem and the font weight to bold. */
 main p {
     font-size: 2rem;
     font-weight: bold;
