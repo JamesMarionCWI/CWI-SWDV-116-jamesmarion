@@ -8,20 +8,139 @@
     <title>James's Car Rentals</title>
     <link rel="shortcut icon" href="https://zany.sh/favicon.svg?text=JM" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Standardize some settings across browsers in case some have weird defaults */
+        html, body, header, nav, section, main, footer {
+            padding: 0;
+            margin: 0;
+        }
+        #hero, main > section, footer {
+            padding: 1rem;
+        }
+
+        /* Header and nav sit on top of this background image */
+        #hero {
+            min-height: 75vh;
+            background-image: url("images/hero_1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Flex the header and nav to wrap together for mobile responsiveness */
+        #hero {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+            align-content: flex-start;
+        }
+
+        /* Helps alignment with the nav */
+        #hero h1 {
+            margin: 0;
+        }
+        /* Ensure the nav has decent spacing */
+        #hero nav {
+            padding: 8px;
+            margin: 2px;
+            width: 500px; /* Helps the nav elements space-evenly */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        
+        /* Provide a background for all of the cards to sit on top of */
+        #featured {
+            margin: 0;
+            background-color: lightgray;
+            padding: 1rem;
+        }
+
+        /* Ensure the cards are organized in wrapping rows */
+        #featured-cars {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+
+        /* Ensure each card has a standardized sizing and style */
+        #featured .car-card {
+            background-color: white;
+            padding: 1rem;
+            margin: 0.5rem;
+            width: 15rem;
+        }
+        /* Ensure the image fits within the card instead of going out of bounds */
+        #featured .car-card img {
+            width: 100%;
+        }
+        /* Return global paragraph styling to normal */
+        #featured .car-card p {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>James's Car Rentals</h1>
-    </header>
-    <nav>
-         <a href="index.html">Home</a>
-         <a href="cars.html">Cars</a>
-         <a href="testimonials.html">Testimonials</a>
-         <a href="contact.html">Contact</a>
-         <a href="about.html">About</a>
-    </nav>
+    <!-- Add a hero section to the index.html file in your repository. -->
+    <!-- Create a hero section that contains the header and nav elements. -->
+    <section id="hero">
+        <header>
+            <h1>James's Car Rentals</h1>
+        </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cars.html">Cars</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+        </nav>
+    </section>
     <main>
-        <p>Rent A Car Today</p>
+        <!-- Add a "featured cars" section to the index.html file in your repository. -->
+        <!-- Create a featured cars section immediately below the hero section. -->
+        <section id="featured">
+            <h2>Featured Cars</h2>
+            <div id="featured-cars">
+                <div class="car-card">
+                    <image src="images/car_1.jpg" />
+                    <h3>Car Model 1</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="car-card">
+                    <image src="images/car_2.jpg" />
+                    <h3>Car Model 2</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="car-card">
+                    <image src="images/car_3.jpg" />
+                    <h3>Car Model 3</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="car-card">
+                    <image src="images/car_4.jpg" />
+                    <h3>Car Model 4</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="car-card">
+                    <image src="images/car_5.jpg" />
+                    <h3>Car Model 5</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="car-card">
+                    <image src="images/car_6.jpg" />
+                    <h3>Car Model 6</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="car-card">
+                    <image src="images/car_7.jpg" />
+                    <h3>Car Model 7</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <p>Rent A Car Today</p>
+        </section>
     </main>
     <footer>
         <p>&copy;2026</p>
