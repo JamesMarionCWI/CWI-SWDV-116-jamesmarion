@@ -29,9 +29,70 @@ html, body, header, nav, section, main, footer {
 /* Header and nav sit on top of this background image */
 #hero {
     min-height: 75vh;
-    background-image: url("images/hero_1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+}
+/* Use media queries in the stylesheet to set the appropriately sized background image for each breakpoint. */
+@media screen and (max-width: 600px) {
+    #hero {
+        background-image: url("images/hero_1-600w.jpg");
+        /* Use responsive text for the hero section text. */
+        font-size: 4vw;
+    }
+    /* Use the @supports CSS rule to set webp background images if supported. */
+    @supports (background-image: url("images/hero_1-600w.webp")) {
+        #hero {
+            background-image: url("images/hero_1-600w.webp");
+        }
+    }
+}
+@media screen and (min-width: 600px) {
+    #hero {
+        background-image: url("images/hero_1-768w.jpg");
+        /* Use responsive text for the hero section text. */
+        font-size: 3vw;
+    }
+    /* Use the @supports CSS rule to set webp background images if supported. */
+    @supports (background-image: url("images/hero_1-768w.webp")) {
+        #hero {
+            background-image: url("images/hero_1-768w.webp");
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    #hero {
+        background-image: url("images/hero_1-1024w.jpg");
+        /* Use responsive text for the hero section text. */
+        font-size: 2vw;
+    }
+    /* Use the @supports CSS rule to set webp background images if supported. */
+    @supports (background-image: url("images/hero_1-1024w.webp")) {
+        #hero {
+            background-image: url("images/hero_1-1024w.webp");
+        }
+    }
+}
+@media screen and (min-width: 900px) {
+    #hero {
+        /* Use responsive text for the hero section text. */        
+        font-size: inherit;
+    }
+}
+@media screen and (min-width: 992px) {
+    #hero {
+        background-image: url("images/hero_1-1280w.jpg");
+    }
+    /* Use the @supports CSS rule to set webp background images if supported. */
+    @supports (background-image: url("images/hero_1-1280w.webp")) {
+        #hero {
+            background-image: url("images/hero_1-1280w.webp");
+        }
+    }
+}
+@media screen and (min-width: 1200px) {
+    #hero {
+        background-image: url("images/hero_1.jpg");
+    }
 }
 
 /* Flex the header and nav to wrap together for mobile responsiveness */
