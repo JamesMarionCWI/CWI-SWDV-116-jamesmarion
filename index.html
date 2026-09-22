@@ -9,45 +9,6 @@
     <link rel="shortcut icon" href="https://zany.sh/favicon.svg?text=JM" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Standardize some settings across browsers in case some have weird defaults */
-        html, body, header, nav, section, main, footer {
-            padding: 0;
-            margin: 0;
-        }
-        #hero, main > section, footer {
-            padding: 1rem;
-        }
-
-        /* Header and nav sit on top of this background image */
-        #hero {
-            min-height: 75vh;
-            background-image: url("images/hero_1.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        /* Flex the header and nav to wrap together for mobile responsiveness */
-        #hero {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-evenly;
-            align-content: flex-start;
-        }
-
-        /* Helps alignment with the nav */
-        #hero h1 {
-            margin: 0;
-        }
-        /* Ensure the nav has decent spacing */
-        #hero nav {
-            padding: 8px;
-            margin: 2px;
-            width: 500px; /* Helps the nav elements space-evenly */
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-        }
-        
         /* Provide a background for all of the cards to sit on top of */
         #featured {
             margin: 0;
