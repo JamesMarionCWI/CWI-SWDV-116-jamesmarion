@@ -36,10 +36,8 @@ html, body, header, nav, section, main, footer {
 @media screen and (max-width: 600px) {
     #hero {
         background-image: url("images/hero_1-600w.jpg");
-        /* Use responsive text for the hero section text. */
         font-size: 4vw;
     }
-    /* Use the @supports CSS rule to set webp background images if supported. */
     @supports (background-image: url("images/hero_1-600w.webp")) {
         #hero {
             background-image: url("images/hero_1-600w.webp");
@@ -49,10 +47,8 @@ html, body, header, nav, section, main, footer {
 @media screen and (min-width: 600px) {
     #hero {
         background-image: url("images/hero_1-768w.jpg");
-        /* Use responsive text for the hero section text. */
         font-size: 3vw;
     }
-    /* Use the @supports CSS rule to set webp background images if supported. */
     @supports (background-image: url("images/hero_1-768w.webp")) {
         #hero {
             background-image: url("images/hero_1-768w.webp");
@@ -62,10 +58,8 @@ html, body, header, nav, section, main, footer {
 @media screen and (min-width: 768px) {
     #hero {
         background-image: url("images/hero_1-1024w.jpg");
-        /* Use responsive text for the hero section text. */
         font-size: 2vw;
     }
-    /* Use the @supports CSS rule to set webp background images if supported. */
     @supports (background-image: url("images/hero_1-1024w.webp")) {
         #hero {
             background-image: url("images/hero_1-1024w.webp");
@@ -74,7 +68,6 @@ html, body, header, nav, section, main, footer {
 }
 @media screen and (min-width: 900px) {
     #hero {
-        /* Use responsive text for the hero section text. */        
         font-size: inherit;
     }
 }
@@ -82,7 +75,6 @@ html, body, header, nav, section, main, footer {
     #hero {
         background-image: url("images/hero_1-1280w.jpg");
     }
-    /* Use the @supports CSS rule to set webp background images if supported. */
     @supports (background-image: url("images/hero_1-1280w.webp")) {
         #hero {
             background-image: url("images/hero_1-1280w.webp");
@@ -93,7 +85,6 @@ html, body, header, nav, section, main, footer {
     #hero {
         background-image: url("images/hero_1-1920w.jpg");
     }
-    /* Use the @supports CSS rule to set webp background images if supported. */
     @supports (background-image: url("images/hero_1-1920w.webp")) {
         #hero {
             background-image: url("images/hero_1-1920w.webp");
