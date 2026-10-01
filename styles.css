@@ -91,7 +91,13 @@ html, body, header, nav, section, main, footer {
 }
 @media screen and (min-width: 1200px) {
     #hero {
-        background-image: url("images/hero_1.jpg");
+        background-image: url("images/hero_1-1920w.jpg");
+    }
+    /* Use the @supports CSS rule to set webp background images if supported. */
+    @supports (background-image: url("images/hero_1-1920w.webp")) {
+        #hero {
+            background-image: url("images/hero_1-1920w.webp");
+        }
     }
 }
 
