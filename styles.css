@@ -36,7 +36,7 @@ html, body, header, nav, section, main, footer {
 @media screen and (max-width: 600px) {
     #hero {
         background-image: url("images/hero_1-600w.jpg");
-        font-size: 4vw;
+        font-size: 3vw;
     }
     @supports (background-image: url("images/hero_1-600w.webp")) {
         #hero {
@@ -47,7 +47,7 @@ html, body, header, nav, section, main, footer {
 @media screen and (min-width: 600px) {
     #hero {
         background-image: url("images/hero_1-768w.jpg");
-        font-size: 3vw;
+        font-size: 2.5vw;
     }
     @supports (background-image: url("images/hero_1-768w.webp")) {
         #hero {
@@ -104,12 +104,96 @@ html, body, header, nav, section, main, footer {
 #hero h1 {
     margin: 0;
 }
+
 /* Ensure the nav has decent spacing */
 #hero nav {
     padding: 8px;
     margin: 2px;
     width: 500px; /* Helps the nav elements space-evenly */
+}
+
+/* Horizontal nav */
+#hero nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+/* Ensures the mobile nav toggle isn't displayed for non-mobile */
+#hero nav #toggle, #hero nav .menu-btn {
+    display: none;
+}
+
+/* Allows flipping which icons get displayed at the breakpoint */
+#hero .display-desktop {
+    display: inline-block;
+}
+#hero .display-mobile {
+    display: none;
+}
+
+/* The navbar should collapse to a hidden vertically aligned menu on screens with a width of 600 pixels or less. */
+@media screen and (max-width: 600px) {
+    #hero {
+        justify-content: space-between;
+    }
+
+    /* Ensure the nav has decent spacing */
+    #hero nav {
+        width: 150px;
+        padding: 0;
+        margin: 0;
+        text-align: right;
+    }
+
+    /* Hides nav while it isn't checked */
+    #hero nav ul {
+        display: none;
+    }
+
+    /* Reorganizes the icons in the nav to be on the right instead of the left */
+    #hero nav li a {
+        padding: 8px;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    #hero nav li a i {
+        margin-left: 4px;
+    }
+    /* Allows flipping which icons get displayed at the breakpoint */
+    #hero .display-desktop {
+        display: none;
+    }
+    #hero .display-mobile {
+        display: inline-block;
+    }
+
+    /* Mobile nav toggle button styling */
+    #hero nav .menu-btn {
+        display: block;
+        padding: 12px;
+        color: black;
+    }
+    #hero nav .menu-btn::after {
+        content: "\2630"; /* hamburger symbol */
+    }
+    /* There should be a toggle button that toggles the menu visibility when clicked. */
+    /* When checked, display the menu */
+    /* Vertical nav when displayed */
+    #hero nav #toggle:checked~ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: #FFF;
+    }
+    /* Mobile nav toggle button styling */
+    #hero nav #toggle:checked~.menu-btn::after {
+        content: "\2716"; /* close (x) symbol */
+    }
 }

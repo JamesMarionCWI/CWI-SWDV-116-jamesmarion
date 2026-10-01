@@ -17,11 +17,47 @@
             <h1><a href="index.html">James's Car Rentals</a></h1>
         </header>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="cars.html">Cars</a>
-            <a href="testimonials.html">Testimonials</a>
-            <a href="contact.html">Contact</a>
-            <a href="about.html">About</a>
+            <!-- There should be a toggle button that toggles the menu visibility when clicked. -->
+            <input type="checkbox" id="toggle" name="toggle" aria-hidden="true" />
+	        <label for="toggle" class="menu-btn" aria-hidden="true"></label>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <!-- Add a Font Awesome icon to each link -->
+                        <i class="fa fa-home fa-fw" aria-hidden="true"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="cars.html">
+                        <!-- Add a Font Awesome icon to each link -->
+                        <i class="fa fa-car fa-fw" aria-hidden="true"></i>
+                        Cars
+                    </a>
+                </li>
+                <li>
+                    <a href="testimonials.html">
+                        <!-- Add a Font Awesome icon to each link -->
+                        <i class="fa fa-comments fa-fw" aria-hidden="true"></i>
+                        Testimonials
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <!-- Add a Font Awesome icon to each link -->
+                        <i class="fa fa-envelope-open fa-fw" aria-hidden="true"></i>
+                        Contact
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <!-- Add a Font Awesome icon to each link -->
+                        <i class="display-desktop fa fa-hand-o-right fa-fw" aria-hidden="true"></i>
+                        <i class="display-mobile fa fa-hand-o-left fa-fw" aria-hidden="true"></i>
+                        About
+                    </a>
+                </li>
+            </ul>
         </nav>
     </section>
     <main>
