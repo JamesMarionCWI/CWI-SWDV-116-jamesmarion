@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="James's Car Rentals">
+    <!-- Update the description meta tag to "SWDV-116 Lab 9" -->
+    <meta name="description" content="SWDV-116 Lab 9">
     <meta name="author" content="James Marion">
     <title>James's Car Rentals</title>
     <link rel="shortcut icon" href="https://zany.sh/favicon.svg?text=JM" type="image/x-icon">
@@ -95,6 +96,16 @@
     <main>
         <section id="featured">
             <h2>Featured Cars</h2>
+            <video autoplay loop muted>
+                <!-- Add a <video> tag at the top of the featured cars section that autoplays the DrivingVideo.mp4 file (download this file and add it to your project). -->
+                <source src="media/DrivingVideo.mp4" type="video/mp4" />
+                <!-- Create and include a subtitles track that displays 3 marketing statements throughout the video. -->
+                <track src="media/DrivingVideo.vtt" kind="subtitles" srclang="en" label="English" default />
+            </video>
+            <audio controls autoplay muted loop>
+                <!-- Add an <audio> tag that autoplays the DrivingMusic.mp4 file (download this file and add it to your project). -->
+                <source src="media/DrivingMusic.mp4" type="audio/mp4" />
+            </audio>
             <div id="featured-cars">
                 <div class="car-card">
                     <picture>
