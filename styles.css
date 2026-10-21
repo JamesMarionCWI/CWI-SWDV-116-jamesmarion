@@ -22,7 +22,7 @@ html, body, header, nav, section, main, footer {
     padding: 0;
     margin: 0;
 }
-#hero, main > section, footer {
+#header-nav, main > section, footer {
     padding: 1rem;
 }
 
@@ -36,6 +36,8 @@ html, body, header, nav, section, main, footer {
 @media screen and (max-width: 600px) {
     #hero {
         background-image: url("images/hero_1-600w.jpg");
+    }
+    #header-nav {
         font-size: 3vw;
     }
     @supports (background-image: url("images/hero_1-600w.webp")) {
@@ -47,6 +49,8 @@ html, body, header, nav, section, main, footer {
 @media screen and (min-width: 600px) {
     #hero {
         background-image: url("images/hero_1-768w.jpg");
+    }
+    #header-nav {
         font-size: 2.5vw;
     }
     @supports (background-image: url("images/hero_1-768w.webp")) {
@@ -58,6 +62,8 @@ html, body, header, nav, section, main, footer {
 @media screen and (min-width: 768px) {
     #hero {
         background-image: url("images/hero_1-1024w.jpg");
+    }
+    #header-nav {
         font-size: 2vw;
     }
     @supports (background-image: url("images/hero_1-1024w.webp")) {
@@ -67,7 +73,7 @@ html, body, header, nav, section, main, footer {
     }
 }
 @media screen and (min-width: 900px) {
-    #hero {
+    #header-nav {
         font-size: inherit;
     }
 }
@@ -93,7 +99,7 @@ html, body, header, nav, section, main, footer {
 }
 
 /* Flex the header and nav to wrap together for mobile responsiveness */
-#hero {
+#header-nav {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
@@ -101,19 +107,19 @@ html, body, header, nav, section, main, footer {
 }
 
 /* Helps alignment with the nav */
-#hero h1 {
+h1 {
     margin: 0;
 }
 
 /* Ensure the nav has decent spacing */
-#hero nav {
+#header-nav nav {
     padding: 8px;
     margin: 2px;
     width: 500px; /* Helps the nav elements space-evenly */
 }
 
 /* Horizontal nav */
-#hero nav ul {
+#header-nav nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -123,26 +129,26 @@ html, body, header, nav, section, main, footer {
 }
 
 /* Ensures the mobile nav toggle isn't displayed for non-mobile */
-#hero nav #toggle, #hero nav .menu-btn {
+#header-nav nav #toggle, #header-nav nav .menu-btn {
     display: none;
 }
 
 /* Allows flipping which icons get displayed at the breakpoint */
-#hero .display-desktop {
+#header-nav .display-desktop {
     display: inline-block;
 }
-#hero .display-mobile {
+#header-nav .display-mobile {
     display: none;
 }
 
 /* The navbar should collapse to a hidden vertically aligned menu on screens with a width of 600 pixels or less. */
 @media screen and (max-width: 600px) {
-    #hero {
+    #header-nav {
         justify-content: space-between;
     }
 
     /* Ensure the nav has decent spacing */
-    #hero nav {
+    #header-nav nav {
         width: 150px;
         padding: 0;
         margin: 0;
@@ -150,40 +156,40 @@ html, body, header, nav, section, main, footer {
     }
 
     /* Hides nav while it isn't checked */
-    #hero nav ul {
+    #header-nav nav ul {
         display: none;
     }
 
     /* Reorganizes the icons in the nav to be on the right instead of the left */
-    #hero nav li a {
+    #header-nav nav li a {
         padding: 8px;
         display: flex;
         flex-direction: row-reverse;
     }
-    #hero nav li a i {
+    #header-nav nav li a i {
         margin-left: 4px;
     }
     /* Allows flipping which icons get displayed at the breakpoint */
-    #hero .display-desktop {
+    #header-nav .display-desktop {
         display: none;
     }
-    #hero .display-mobile {
+    #header-nav .display-mobile {
         display: inline-block;
     }
 
     /* Mobile nav toggle button styling */
-    #hero nav .menu-btn {
+    #header-nav nav .menu-btn {
         display: block;
         padding: 12px;
         color: black;
     }
-    #hero nav .menu-btn::after {
+    #header-nav nav .menu-btn::after {
         content: "\2630"; /* hamburger symbol */
     }
     /* There should be a toggle button that toggles the menu visibility when clicked. */
     /* When checked, display the menu */
     /* Vertical nav when displayed */
-    #hero nav #toggle:checked~ul {
+    #header-nav nav #toggle:checked~ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -193,7 +199,63 @@ html, body, header, nav, section, main, footer {
         background-color: #FFF;
     }
     /* Mobile nav toggle button styling */
-    #hero nav #toggle:checked~.menu-btn::after {
+    #header-nav nav #toggle:checked~.menu-btn::after {
         content: "\2716"; /* close (x) symbol */
     }
+}
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+#hero > #header-nav {
+    width: 100%;
+}
+/* A spacer to give the hero flexbox 3 items to let space-between do its magic */
+#hero .spacer {
+    visibility: hidden;
+    /* Just a sliiiiiiiiiight pixel adjustment to match the header size */
+    padding-bottom: 1px;
+}
+
+#rent-a-car-form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#rent-a-car-form-section h2 {
+    margin: 0;
+}
+
+#rent-a-car-form-section form {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    border: 1px solid black;
+    background-color:rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    color: #FFFFFF;
+}
+#rent-a-car-form-section form label,
+#rent-a-car-form-section form input,
+#rent-a-car-form-section form select {
+    margin: 0;
+    padding: 0;
+    width: 45%;
+    box-sizing: border-box;
+    margin-bottom: 0.75rem;
+}
+#rent-a-car-form-section form input,
+#rent-a-car-form-section form select {
+    text-align: center;
+}
+#rent-a-car-form-section form input[type="submit"] {
+    width: 100%;
+    margin-bottom: 0;
 }
