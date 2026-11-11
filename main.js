@@ -200,17 +200,7 @@ function displayCars(cars) {
     // append html to the page
     cars.forEach(car => {
         const carElement = document.createElement('div')
-        switch(car.type) {
-            case "Car Type 1":
-                carElement.className = 'car-card type-one'
-                break;
-            case "Car Type 2":
-                carElement.className = 'car-card type-two'
-                break;
-            case "Car Type 3":
-                carElement.className = 'car-card type-three'
-                break;
-        }
+        carElement.className = 'car-card'
         const carPic = generateRandomCarPic()
         const carName = document.createElement('h3')
         const carDesc = document.createElement('span')
