@@ -63,18 +63,19 @@
         </div>
         <section id="rent-a-car-form-section">
             <h2>Rent A Car Today</h2>
-            <form action="cars.html" method="GET">
-                <select name="type">
+            <form action="cars.html" method="GET" id="searchForm">
+                <select name="type" id="typeSelect">
                     <option value="type1">Car Type 1</option>
                     <option value="type2">Car Type 2</option>
                     <option value="type3">Car Type 3</option>
                 </select>
                 <label for="type">Car Type</label>
-                <input type="date" name="pickup" />
+                <input type="date" name="pickup" id="pickupDate" />
                 <label for="pickup">Pickup Date</label>
-                <input type="date" name="return" />
+                <input type="date" name="return" id="returnDate" />
                 <label for="return">Return Date</label>
                 <input type="submit" value="Search" />
+                <div id="formErrors"></div>
             </form>
         </section>
         <div class="spacer"><h1>.</h1></div>
@@ -87,5 +88,7 @@
     <footer>
         <p>&copy;2026</p>
     </footer>    
+    
+    <script src="main.js"></script>
 </body>
 </html>

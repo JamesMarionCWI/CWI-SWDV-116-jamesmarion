@@ -26,6 +26,12 @@ html, body, header, nav, section, main, footer {
     padding: 1rem;
 }
 
+/* Provide a background for all mains */
+main > section {
+    margin: 0;
+    background-color: lightgray;
+}
+
 /* Header and nav sit on top of this background image */
 #hero {
     min-height: 75vh;
@@ -258,4 +264,39 @@ h1 {
 #rent-a-car-form-section form input[type="submit"] {
     width: 100%;
     margin-bottom: 0;
+}
+
+/* Ensure the cards are organized in wrapping rows */
+#featured-cars {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+/* Ensure each card has a standardized sizing and style */
+#featured .car-card {
+    background-color: white;
+    padding: 1rem;
+    margin: 0.5rem;
+    width: 15rem;
+}
+/* Ensure the image fits within the card instead of going out of bounds */
+#featured .car-card img {
+    width: 100%;
+}
+/* Return global paragraph styling to normal */
+#featured .car-card p {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+#formErrors {
+    color: #FFAAAA;
+    text-align: center;
+    margin-top: 1em;
+}
+#formErrors ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 }
