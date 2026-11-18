@@ -1,65 +1,65 @@
 
 function validateSearch() {
-    const typeSelect = document.getElementById('typeSelect');
-    const pickupDate = document.getElementById('pickupDate');
-    const returnDate = document.getElementById('returnDate');
+    const typeSelect = document.getElementById('typeSelect')
+    const pickupDate = document.getElementById('pickupDate')
+    const returnDate = document.getElementById('returnDate')
     // Ensure All fields have values.
-    let errors = [];
+    let errors = []
     if(typeSelect.selectedIndex == -1 || !pickupDate.value || !returnDate.value) {
-        errors.push('Values are missing!');
+        errors.push('Values are missing!')
     }
     // Ensure The pickup date is in the future.
     // T00:00 forces the pickupDate to be parsed in local time
     // Otherwise it parses as if it's UTC and that's a big headache depending on the time of day
     if(new Date(pickupDate.value+"T00:00").getTime() < new Date().getTime()) {
-        errors.push('Pickup is in the past!');
+        errors.push('Pickup is in the past!')
     }
     // Ensure The return date is after the pickup date.
     if(returnDate.value && pickupDate.value) {
         // Only run this test when both values exist
         if(returnDate.value < pickupDate.value) {
-            errors.push('Return is before pickup!');
+            errors.push('Return is before pickup!')
         }
     }
 
     // Return error messages as an array.
     // If there are no errors, return an empty array.
-    return errors;
+    return errors
 }
 // Attach a click event handler to the "Search button"
 // If the function returns errors, prevent the form submission
 // and add a <ul> with an <li> element for each error to the search form
 function checkForm(event) {
-    const errors = validateSearch();
-    const formErrors = document.getElementById('formErrors');
+    const errors = validateSearch()
+    const formErrors = document.getElementById('formErrors')
     if(errors.length > 0) {
         // Reset the contents of the errors element to just this text:
         if(errors.length === 1) {
-            formErrors.textContent = 'Error:';
+            formErrors.textContent = 'Error:'
         } else {
-            formErrors.textContent = 'Errors:';
+            formErrors.textContent = 'Errors:'
         }
         // Prevent form submission
-        event.preventDefault();
+        event.preventDefault()
         // For each error, add the error to the errors element
-        const errorsUl = document.createElement('ul');
+        const errorsUl = document.createElement('ul')
         for(const error of errors) {
-            const errorLi = document.createElement('li');
-            errorLi.textContent = error;
-            errorsUl.appendChild(errorLi);
+            const errorLi = document.createElement('li')
+            errorLi.textContent = error
+            errorsUl.appendChild(errorLi)
         }
-        formErrors.appendChild(errorsUl);
-        formErrors.style.backgroundColor = '#333333';
-        formErrors.style.padding = '1em';
+        formErrors.appendChild(errorsUl)
+        formErrors.style.backgroundColor = '#333333'
+        formErrors.style.padding = '1em'
     } else {
         // Reset the contents of the error element, we have no more errors :)
-        formErrors.textContent = '';
-        formErrors.style.backgroundColor = '';
-        formErrors.style.padding = '0';
+        formErrors.textContent = ''
+        formErrors.style.backgroundColor = ''
+        formErrors.style.padding = '0'
     }
 }
-const searchForm = document.getElementById('searchForm');
-searchForm.addEventListener("submit", checkForm);
+const searchForm = document.getElementById('searchForm')
+searchForm.addEventListener("submit", checkForm)
 
 var cars = [
     {
@@ -124,27 +124,25 @@ var cars = [
     }
 ]
 
+function typeToString(type) {
+    switch(type) {
+        case "type1": return "Car Type 1"
+        case "type2": return "Car Type 2"
+        case "type3": return "Car Type 3"
+    }
+}
+
 function listCars() {
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.search)
 
     if (params.has('type')) {
-        let type = params.get('type');
-        switch(type) {
-            case "type1":
-                type = "Car Type 1";
-                break;
-            case "type2":
-                type = "Car Type 2";
-                break;
-            case "type3":
-                type = "Car Type 3";
-                break;
-        }
+        let type = params.get('type')
+        type = typeToString(type)
         // filter the cars array by type and call displayCars with the new array
         displayCars(cars.filter(car => car.type === type))
     } else {
         // call displayCars with the unfiltered cars array
-        displayCars(cars);
+        displayCars(cars)
     }
 }
 
@@ -153,14 +151,14 @@ function listCars() {
 // Riiiiiiiiiight? Nobody will ever notice!
 // Anyway, this should hopefully meet "Note: Match the style of the featured cars list on index.html."
 function generateRandomCarPic() {
-    const picture = document.createElement('picture');
+    const picture = document.createElement('picture')
     const webp320Source = document.createElement('source')
     const webp500Source = document.createElement('source')
     const jpg320Source = document.createElement('source')
     const jpg500Source = document.createElement('source')
     const jpg500Image = document.createElement('img')
     
-    const randomID = Math.ceil(Math.random() * 7);
+    const randomID = Math.ceil(Math.random() * 7)
 
     webp320Source.media = '(max-width: 480px)'
     jpg320Source.media = '(max-width: 480px)'
@@ -190,12 +188,12 @@ function generateRandomCarPic() {
     </picture>
     */
 
-   return picture;
+   return picture
 }
 
 function displayCars(cars) {
     const carsContainer = document.getElementById('featured-cars')
-    carsContainer.textContent = '';
+    carsContainer.textContent = ''
     // loop through cars and build html
     // append html to the page
     cars.forEach(car => {
@@ -206,14 +204,31 @@ function displayCars(cars) {
         const carDesc = document.createElement('span')
         const carYearType = document.createElement('strong')
         const carDescTotal = document.createElement('p')
+        const rentCarButton = document.createElement('button')
         carName.textContent = car.name
-        carYearType.textContent = car.year + " " + car.type + ": ";
+        carYearType.textContent = car.year + " " + car.type + ": "
         carDesc.textContent = car.description
+        rentCarButton.textContent = 'Rent'
+        rentCarButton.addEventListener('click', () => {
+            const params = new URLSearchParams(window.location.search)
+            if (params.has('type') && params.has('pickup') && params.has('return')) {
+                document.dispatchEvent(new CustomEvent('confirm-rental', {
+                    detail: {
+                        carType: typeToString(params.get('type')),
+                        pickupDate: params.get('pickup'),
+                        returnDate: params.get('return')
+                    }
+                }))
+            } else {
+                document.dispatchEvent(new CustomEvent('confirm-rental'))
+            }
+        })
         carDescTotal.appendChild(carYearType)
         carDescTotal.appendChild(carDesc)
         carElement.appendChild(carPic)
         carElement.appendChild(carName)
         carElement.appendChild(carDescTotal)
+        carElement.appendChild(rentCarButton)
         carsContainer.appendChild(carElement)
     })
 }

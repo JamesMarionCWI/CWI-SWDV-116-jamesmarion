@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div id="hero">
         <div id="header-nav">
@@ -78,7 +80,9 @@
                 <div id="formErrors"></div>
             </form>
         </section>
-        <div class="spacer"><h1>.</h1></div>
+        <div class="spacer">
+            <h1>.</h1>
+        </div>
     </div>
     <main>
         <section id="featured">
@@ -94,7 +98,40 @@
 
     <script src="main.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => { listCars() });
+        document.addEventListener("DOMContentLoaded", () => { listCars() })
+        document.addEventListener('confirm-rental', (e) => {
+            const dialogElement = document.createElement('dialog')
+            if (e.detail) {
+                dialogElement.textContent = e.detail.carType + ' from ' + e.detail.pickupDate + ' to ' + e.detail.returnDate
+                
+                dialogElement.addEventListener('close', () => {
+                    if (dialogElement.returnValue === 'confirm') {
+                        console.log('Confirmed!')
+                        console.log(e.detail)
+                    } else {
+                        console.log('Cancelled!')
+                    }
+                })
+
+                const dialogForm = document.createElement('form')
+                dialogForm.method = 'dialog'
+                const dialogConfirmButton = document.createElement('button')
+                dialogConfirmButton.value = 'confirm'
+                dialogConfirmButton.textContent = 'Confirm'
+                const dialogCancelButton = document.createElement('button')
+                dialogCancelButton.value = 'cancel'
+                dialogCancelButton.textContent = 'Cancel'
+                dialogForm.appendChild(dialogConfirmButton)
+                dialogForm.appendChild(dialogCancelButton)
+                dialogElement.appendChild(dialogForm)
+                document.body.appendChild(dialogElement)
+
+                dialogElement.showModal()
+            } else {
+                alert('Please submit a pickup and return date first!')
+            }
+        })
     </script>
 </body>
+
 </html>
